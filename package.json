@@ -1,0 +1,21 @@
+{
+  "name": "wetube_final",
+  "version": "1.0.0",
+  "description": "Youtube clone coding with node.js, mongoDB",
+  "main": "index.js",
+  "repository": "https://github.com/denev723/wetube_final.git",
+  "author": "denev <65989857+deneb0723@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec babel-node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.13.15",
+    "nodemon": "^2.0.7"
+  }
+}
