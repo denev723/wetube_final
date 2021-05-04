@@ -1,15 +1,19 @@
 import express from "express";
 import morgan from "morgan";
+import globalRouter from "./routers/globalRouter";
+import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
 
 const PORT = 4000;
 
 const app = express();
 const logger = morgan("dev");
 
-const home = (req, res) => res.send("Hello");
-
 app.use(logger);
-app.get("/", home);
+
+app.use("/", globalRouter);
+app.use("/videos", videoRouter);
+app.use("/users", userRouter);
 
 const handleListen = () =>
   console.log(`✅ localhost:${PORT} 서버에 연결되었습니다. ✈️`);
