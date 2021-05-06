@@ -1,0 +1,9 @@
+extends base.pug
+include mixins/video
+
+block content
+  h2 Welcome here you will see tranding Video  
+  each potato in videos
+    +video(potato)
+  else
+    p Sorry nothing found
