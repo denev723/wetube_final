@@ -7,10 +7,11 @@
   "author": "denev <65989857+deneb0723@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^5.12.8",
     "morgan": "^1.10.0",
     "pug": "^3.0.2"
   },
@@ -18,6 +19,7 @@
     "@babel/core": "^7.13.16",
     "@babel/node": "^7.13.13",
     "@babel/preset-env": "^7.13.15",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.0"
   }
 }
