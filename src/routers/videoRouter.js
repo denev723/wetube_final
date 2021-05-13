@@ -7,17 +7,21 @@ import {
   postUploadVideo,
   watchVideo,
 } from "../controllers/videoController";
+import Video from "../models/Video";
 
 const videoRouter = express.Router();
 
-videoRouter.route("/:id(\\d+)").get(watchVideo);
+videoRouter.route("/:id([0-9a-f]{24})").get(watchVideo);
 // videoRouter.get("/:id(\\d+)", watchVideo);
-videoRouter.route("/:id(\\d+)/edit").get(getEditVideo).post(postEditVideo);
+videoRouter
+  .route("/:id([0-9a-f]{24})/edit")
+  .get(getEditVideo)
+  .post(postEditVideo);
 // videoRouter.get("/:id(\\d+)/edit", getEditVideo);
 // videoRouter.post("/:id(\\d+)/edit", postEditVideo);
 
-videoRouter.route("/upload").get(getUploadVideo).post(postUploadVideo);
+videoRouter.route("/:id([0-9a-f]{24})/delete").get(deleteVideo);
 
-videoRouter.get("/:id(\\d+)/delete", deleteVideo);
+videoRouter.route("/upload").get(getUploadVideo).post(postUploadVideo);
 
 export default videoRouter;
