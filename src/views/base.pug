@@ -1,23 +1,29 @@
 doctype html 
 html(lang="ko")
   head 
-    title #{ pageTitle } | Wetube
+    title #{ pageTitle } | #{siteName}
     link(rel="stylesheet", href="https://unpkg.com/mvp.css")
   body
     header
-      h1= pageTitle
+      h1=pageTitle
     nav 
       ul
         li 
           a(href="/videos/upload") Upload Video
         li 
           a(href="/") Home
+        if loggedIn 
+          li
+            a(href="/sign-out") Sign out
+          li
+            a(href="/profile") #{loggedInUser.name}'s Profile
+        else
+          li 
+            a(href="/sign-up") Sign Up
+          li 
+            a(href="/sign-in") Sign In
         li 
           a(href="/search") Search
-        li 
-          a(href="/sign-up") Sign Up
-        li 
-          a(href="/sign-in") Sign In
     main 
       block content
   include partials/footer
