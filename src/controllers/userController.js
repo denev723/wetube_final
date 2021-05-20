@@ -1,6 +1,7 @@
 import User from "../models/User";
 import bcrypt from "bcrypt";
 import fetch from "node-fetch";
+import Video from "../models/Video";
 
 export const getSignUp = (req, res) =>
   res.render("signUp", { pageTitle: "Sign Up" });
@@ -208,4 +209,16 @@ export const postChangePassword = async (req, res) => {
   return res.redirect("/users/sign-out");
 };
 
-export const profile = (req, res) => res.send("Profile");
+export const profile = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  const user = await User.findById(id).populate("videos");
+  if (!user) {
+    return res.status(404).render("404");
+  }
+  return res.render("userProfile", {
+    pageTitle: `${user.name}'s Profile`,
+    user,
+  });
+};

@@ -10,11 +10,10 @@ import {
   startGithubSignIn,
 } from "../controllers/userController";
 import {
+  avatarUpload,
   protectMiddleware,
   publicOnlyMiddleware,
-  uploadFiles,
 } from "../middlewares";
-import User from "../models/User";
 
 const userRouter = express.Router();
 
@@ -24,7 +23,7 @@ userRouter
   .route("/edit")
   .all(protectMiddleware)
   .get(getEditProfile)
-  .post(uploadFiles.single("avatar"), postEditProfile);
+  .post(avatarUpload.single("avatar"), postEditProfile);
 
 userRouter.get("/github/start", publicOnlyMiddleware, startGithubSignIn);
 userRouter.get("/github/finish", publicOnlyMiddleware, finishGihubSignOut);
@@ -34,6 +33,6 @@ userRouter
   .get(getChangePassword)
   .post(postChangePassword);
 
-userRouter.get("/:id(\\d+)", profile);
+userRouter.get("/:id", profile);
 
 export default userRouter;
