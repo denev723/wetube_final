@@ -1,7 +1,6 @@
 import User from "../models/User";
 import bcrypt from "bcrypt";
 import fetch from "node-fetch";
-import Video from "../models/Video";
 
 export const getSignUp = (req, res) =>
   res.render("signUp", { pageTitle: "Sign Up" });
@@ -112,7 +111,7 @@ export const finishGihubSignOut = async (req, res) => {
       })
     ).json();
     const emailObj = emailData.find(
-      (email) => email.primary === true && email.verified === true
+      (email) => email.primary === true && email.verified === true,
     );
     if (!emailObj) {
       return res.redirect("/sign-in");
@@ -170,7 +169,7 @@ export const postEditProfile = async (req, res) => {
       username,
       location,
     },
-    { new: true }
+    { new: true },
   );
   req.session.user = updatedUser;
   return res.redirect("/users/edit");
@@ -210,12 +209,16 @@ export const postChangePassword = async (req, res) => {
 };
 
 export const profile = async (req, res) => {
-  const {
-    params: { id },
-  } = req;
-  const user = await User.findById(id).populate("videos");
+  const { id } = req.params;
+  const user = await User.findById(id).populate({
+    path: "videos",
+    populate: {
+      path: "owner",
+      model: "User",
+    },
+  });
   if (!user) {
-    return res.status(404).render("404");
+    return res.status(404).render("404", { pageTitle: "User not found." });
   }
   return res.render("userProfile", {
     pageTitle: `${user.name}'s Profile`,

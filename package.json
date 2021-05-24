@@ -8,10 +8,12 @@
   "license": "MIT",
   "scripts": {
     "dev:server": "nodemon",
-    "dev:assets": "webpack"
+    "dev:assets": "webpack",
+    "start": "concurrently \"yarn dev:server\" \"yarn dev:assets\""
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "concurrently": "^6.1.0",
     "connect-mongo": "^4.4.1",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
