@@ -113,6 +113,9 @@ const handleKeydown = (e) => {
     videoPlayEvent();
     hideControlsEvent();
   }
+  if (e.keyCode === 70) {
+    handleFullscreen();
+  }
 };
 
 const handleContainerClick = () => {
