@@ -138,6 +138,7 @@ export const finishGihubSignOut = async (req, res) => {
 
 export const signOut = (req, res) => {
   req.session.destroy();
+  req.flash("info", "bye bye");
   res.redirect("/");
 };
 
@@ -177,6 +178,7 @@ export const postEditProfile = async (req, res) => {
 
 export const getChangePassword = (req, res) => {
   if (req.session.user.socialOnly === true) {
+    req.flash("error", "Can't change password.");
     return res.redirect("/");
   }
   return res.render("changePassword", { pageTitle: "Change Password" });
@@ -202,9 +204,10 @@ export const postChangePassword = async (req, res) => {
     });
   }
   const user = await User.findById(_id);
+  req.session.user.password = user.password;
   user.password = newPassword;
   await user.save();
-  req.session.user.password = user.password;
+  req.flash("info", "Password updated");
   return res.redirect("/users/sign-out");
 };
 
