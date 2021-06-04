@@ -13,6 +13,9 @@ const fullScreenBtn = document.getElementById("fullScreen");
 const fullScreenIcon = fullScreenBtn.querySelector("i");
 const videoContainer = document.getElementById("videoContainer");
 const videoControls = document.getElementById("videoControls");
+const focusEle = document.activeElement;
+
+console.log(focusEle);
 
 let controlsTimeout = null;
 let controlsMovementTimeout = null;
@@ -143,4 +146,4 @@ videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullscreen);
-window.addEventListener("keydown", handleKeydown);
+// window.addEventListener("keydown", handleKeydown);
