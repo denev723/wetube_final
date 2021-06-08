@@ -13,9 +13,8 @@ const fullScreenBtn = document.getElementById("fullScreen");
 const fullScreenIcon = fullScreenBtn.querySelector("i");
 const videoContainer = document.getElementById("videoContainer");
 const videoControls = document.getElementById("videoControls");
-const focusEle = document.activeElement;
 
-console.log(focusEle);
+console.log(document.activeElement.id);
 
 let controlsTimeout = null;
 let controlsMovementTimeout = null;
