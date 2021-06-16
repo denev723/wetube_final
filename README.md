@@ -3,19 +3,24 @@ Youtube clone coding with node.js, mongoDB
 
 ## Pages
 ### Global
-- [ ] Home(생성일 순)
-- [ ] Sign up
-- [ ] Sign in
-- [ ] Search
+- [x] Home(생성일 순)
+- [x] Sign up
+- [x] Sign in
+- [x] Search
 ### User
-- [ ] Profile
-- [ ] Sign out(logged user)
-- [ ] Edit Profile(logged user)
-- [ ] Change Password(logged user)
+- [x] Profile
+- [x] Sign out(logged user)
+- [x] Edit Profile(logged user)
+- [x] Change Password(logged user)
 ### Video
-- [ ] Video
-- [ ] Edit Video(logged user)
-- [ ] Delete Video(logged user)
-- [ ] Upload Video(logged user)
+- [x] Video
+- [x] Edit Video(logged user)
+- [x] Delete Video(logged user)
+- [x] Upload Video(logged user)
 
+### Video Player
+- [x] Video Player Controller
 
+### Comment
+- [x] Add Comment
+- [x] Delete Comment
