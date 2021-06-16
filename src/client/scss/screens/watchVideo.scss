@@ -18,3 +18,43 @@
     }
   }
 }
+
+.video__add-comments {
+  form {
+    display: flex;
+    flex-direction: column;
+    textarea {
+      margin-bottom: 10px;
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.video__comments {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  .video__comment {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 9999px;
+    background-color: white;
+    color: black;
+    margin-bottom: 10px;
+    .left {
+      flex: 1;
+      i {
+        margin-right: 10px;
+      }
+    }
+    .delete--btn {
+      cursor: pointer;
+    }
+  }
+}

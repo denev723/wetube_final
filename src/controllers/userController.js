@@ -138,7 +138,6 @@ export const finishGihubSignOut = async (req, res) => {
 
 export const signOut = (req, res) => {
   req.session.destroy();
-  req.flash("info", "bye bye");
   res.redirect("/");
 };
 
