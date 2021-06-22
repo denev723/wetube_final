@@ -17,6 +17,7 @@
   "dependencies": {
     "@ffmpeg/core": "^0.10.0",
     "@ffmpeg/ffmpeg": "^0.10.0",
+    "aws-sdk": "^2.932.0",
     "bcrypt": "^5.0.1",
     "concurrently": "^6.1.0",
     "connect-flash": "^0.1.1",
@@ -29,6 +30,7 @@
     "mongoose": "^5.12.8",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
     "node-fetch": "^2.6.1",
     "path": "^0.12.7",
     "pug": "^3.0.2",
