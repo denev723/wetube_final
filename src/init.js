@@ -6,7 +6,7 @@ import "./models/User";
 import "./models/Comment";
 import app from "./server";
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 
 const handleListen = () =>
   console.log(`✅ localhost:${PORT} 서버에 연결되었습니다. ✈️`);
